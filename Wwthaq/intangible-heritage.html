@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>وِثاق | التراث غير المادي</title>
 
 <style>
@@ -17,8 +16,8 @@ body {
     color: #ffffff;
     background:
         linear-gradient(
-            rgba(7, 30, 49, 0.88),
-            rgba(7, 30, 49, 0.94)
+            rgba(7, 30, 49, 0.58),
+            rgba(7, 30, 49, 0.72)
         ),
         url("sohar-fort.jpg") center / cover fixed;
     min-height: 100vh;
@@ -61,29 +60,55 @@ header p {
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: 16px;
 }
 
 .card {
-    background: rgba(255,255,255,0.09);
-    border: 1px solid rgba(216,196,145,0.5);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(216, 196, 145, 0.55);
     border-radius: 12px;
-    padding: 20px;
+    padding: 12px;
     text-align: center;
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid rgba(216, 196, 145, 0.4);
+    transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(-7px);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+    }
+
+    .card:hover img {
+        transform: scale(1.04);
+    }
 }
 
 .card h2 {
     color: #d8c491;
     font-size: 20px;
+    margin: 15px 0 8px;
 }
 
 .card p {
     line-height: 2;
     font-size: 15px;
-}
-
-.icon {
-    font-size: 38px;
+    margin: 0 0 8px;
 }
 
 footer {
@@ -102,6 +127,7 @@ footer {
     border: 1px solid #d8c491;
     border-radius: 8px;
     text-decoration: none;
+    transition: background 0.3s ease;
 }
 
 .back-button:hover {
@@ -110,11 +136,42 @@ footer {
 
 @media (max-width: 600px) {
     .cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        padding: 8px;
+    }
+
+    .card img {
+        height: 110px;
+    }
+
+    .card h2 {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .card p {
+        font-size: 12px;
+        line-height: 1.8;
     }
 
     header h1 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card img,
+    .back-button {
+        transition: none;
     }
 }
 </style>
@@ -141,7 +198,10 @@ footer {
 
         <!-- الفنون الشعبية -->
         <div class="card">
-            <div class="icon">🎶</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Traditional%20Omani%20cultural%20performance%20at%20Nizwa%20Fort.jpg"
+                alt="الفنون الشعبية العُمانية"
+                loading="lazy">
             <h2 data-i18n="folkArtsTitle">الفنون الشعبية</h2>
             <p data-i18n="folkArtsDescription">
                 اكتشف الفنون العُمانية مثل الرزحة والعازي والبرعة.
@@ -150,7 +210,10 @@ footer {
 
         <!-- العادات والتقاليد -->
         <div class="card">
-            <div class="icon">🤝</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Celebrations%2C%20Nizwa%2C%20Oman.jpg"
+                alt="العادات والتقاليد العُمانية"
+                loading="lazy">
             <h2 data-i18n="customsTitle">العادات والتقاليد</h2>
             <p data-i18n="customsDescription">
                 تعرّف على العادات الاجتماعية والمناسبات التقليدية في عُمان.
@@ -159,7 +222,10 @@ footer {
 
         <!-- الأهازيج والأغاني -->
         <div class="card">
-            <div class="icon">🎤</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Bait%20Al%20Baranda%20Museum-Drums.jpg"
+                alt="الطبول والآلات الموسيقية العُمانية"
+                loading="lazy">
             <h2 data-i18n="songsTitle">الأهازيج والأغاني الشعبية</h2>
             <p data-i18n="songsDescription">
                 استكشف الأغاني والأهازيج التي تعبر عن حياة المجتمع العُماني.
@@ -168,7 +234,10 @@ footer {
 
         <!-- المأكولات العُمانية -->
         <div class="card">
-            <div class="icon">🍲</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Traditional%20Omani%20Food.jpg"
+                alt="المأكولات العُمانية التقليدية"
+                loading="lazy">
             <h2 data-i18n="cuisineTitle">المأكولات العُمانية</h2>
             <p data-i18n="cuisineDescription">
                 تعرّف على الأطباق التقليدية وطرق إعدادها المتوارثة.
@@ -177,7 +246,10 @@ footer {
 
         <!-- الضيافة العُمانية -->
         <div class="card">
-            <div class="icon">☕</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Al%20Dallah%2C%20Bait%20al%20Zubair%20Museum%2C%20Oman.jpg"
+                alt="الدلة العُمانية"
+                loading="lazy">
             <h2 data-i18n="hospitalityTitle">الضيافة العُمانية</h2>
             <p data-i18n="hospitalityDescription">
                 اكتشف تقاليد القهوة العُمانية وتقديم التمور للضيوف.
@@ -186,7 +258,10 @@ footer {
 
         <!-- الحكايات والروايات -->
         <div class="card">
-            <div class="icon">📖</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Walls%20telling%20stories.jpg"
+                alt="الحكايات والروايات الشعبية"
+                loading="lazy">
             <h2 data-i18n="storiesTitle">الحكايات والروايات الشعبية</h2>
             <p data-i18n="storiesDescription">
                 تعرّف على الحكايات والأمثال والقصص المتوارثة عبر الأجيال.
@@ -195,7 +270,10 @@ footer {
 
         <!-- المعارف والممارسات -->
         <div class="card">
-            <div class="icon">🌴</div>
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Date%20Palm%20Fruits.jpg"
+                alt="النخيل والزراعة التقليدية في عُمان"
+                loading="lazy">
             <h2 data-i18n="knowledgeTitle">المعارف والممارسات التقليدية</h2>
             <p data-i18n="knowledgeDescription">
                 تعرّف على المعارف المرتبطة بالزراعة والبحر والحياة اليومية.
@@ -203,7 +281,6 @@ footer {
         </div>
 
     </div>
-</main>
 </main>
 
 <footer>
@@ -221,7 +298,6 @@ footer {
 </footer>
 
 <script src="images/js/language.js"></script>
-
 
 </body>
 </html>
