@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وِثاق | WETHAQ</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background:
+        linear-gradient(rgba(8, 28, 48, 0.55),
+                        rgba(8, 28, 48, 0.65)),
+        url("sohar-fort.jpg") center / cover no-repeat fixed;
+    color: white;
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+body.heritage {
+    background:
+        linear-gradient(rgba(8, 28, 48, 0.35),
+                        rgba(8, 28, 48, 0.50)),
+        url("sohar-fort.jpg") center / cover no-repeat fixed;
+    color: white;
+}
+
+/* محتوى الصفحة */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+}
+
+/* أزرار اللغة والنمط */
+.controls {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    z-index: 10;
+}
+
+button {
+    padding: 11px 18px;
+    border: 1px solid #b99a63;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #ffffff;
+    color: #173b58;
+    font-size: 14px;
+}
+
+.heritage button {
+    background: #173b58;
+    color: white;
+}
+
+/* عنوان وِثاق */
+.logo {
+    font-size: 65px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #173b58;
+}
+
+.heritage .logo {
+    color: #d8b878;
+}
+
+h2 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.description {
+    max-width: 650px;
+    line-height: 2;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* زر الدخول */
+.enter {
+    display: inline-block;
+    padding: 14px 38px;
+    background: #173b58;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid #b99a63;
+}
+
+.heritage .enter {
+    background: #b99a63;
+    color: #102d46;
+}
+
+footer {
+    margin-top: 65px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.heritage footer {
+    color: #ffffff;
+}
+
+/* الشعار أعلى الصفحة مقابل الأزرار */
+.main-logo {
+    position: absolute;
+    top: -40px;
+    right: 25px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    z-index: 10;
+}
+
+/* تنسيق الهواتف */
+@media (max-width: 600px) {
+    .main-logo {
+        width: 75px;
+        height: 75px;
+        top: -40px;
+        right: 12px;
+    }
+
+    .controls {
+        top: 40px;
+        left: 12px;
+        gap: 5px;
+    }
+
+    button {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- أزرار التحكم -->
+<div class="controls">
+    <button onclick="changeLanguage()">العربية / English</button>
+
+    <button onclick="changeTheme()" id="themeButton">
+        النمط التراثي
+    </button>
+</div>
+
+<!-- شعار المنصة -->
+<img src="images/اكتشف عمان.png"
+     alt="شعار وِثاق"
+     class="main-logo">
+
+<!-- محتوى الصفحة -->
+<main class="container">
+
+    <div class="logo">وِثاق</div>
+
+    <h2 id="title">منصة التراث العُماني</h2>
+
+    <p class="description" id="description">
+        نافذة رقمية للتعريف بالتراث العُماني،
+        وتوثيق المواقع الأثرية والمقتنيات التراثية،
+        وحفظ الموروث الثقافي للأجيال القادمة.
+    </p>
+
+    <a href="home.html" class="enter" id="enter">
+        الدخول إلى المنصة
+    </a>
+
+    <footer id="footer">
+        نحفظ الماضي ونصنع المستقبل | رؤية عُمان 2040
+    </footer>
+
+</main>
+
+<script>
+let isArabic = true;
+
+function changeLanguage() {
+    isArabic = !isArabic;
+
+    localStorage.setItem(
+        "withaqLanguage",
+        isArabic ? "ar" : "en"
+    );
+
+    document.documentElement.lang = isArabic ? "ar" : "en";
+    document.documentElement.dir = isArabic ? "rtl" : "ltr";
+
+    document.querySelector(".logo").textContent =
+        isArabic ? "وِثاق" : "WETHAQ";
+
+    document.getElementById("title").textContent =
+        isArabic ? "منصة التراث العُماني" : "Omani Heritage Platform";
+
+    document.getElementById("description").textContent =
+        isArabic
+        ? "نافذة رقمية للتعريف بالتراث العُماني، وتوثيق المواقع الأثرية والمقتنيات التراثية، وحفظ الموروث الثقافي للأجيال القادمة."
+        : "A digital platform dedicated to documenting Omani heritage, archaeological sites, historical collections and preserving cultural identity for future generations.";
+
+    document.getElementById("enter").textContent =
+        isArabic ? "الدخول إلى المنصة" : "Enter the Platform";
+
+    document.getElementById("footer").textContent =
+        isArabic
+        ? "نحفظ الماضي ونصنع المستقبل | رؤية عُمان 2040"
+        : "Preserving the Past, Building the Future | Oman Vision 2040";
+
+    document.getElementById("themeButton").textContent =
+        isArabic
+        ? (document.body.classList.contains("heritage") ? "النمط العادي" : "النمط التراثي")
+        : (document.body.classList.contains("heritage") ? "Classic Mode" : "Heritage Mode");
+}
+
+function changeTheme() {
+    document.body.classList.toggle("heritage");
+
+    localStorage.setItem(
+        "theme",
+        document.body.classList.contains("heritage") ? "heritage" : "normal"
+    );
+
+    document.getElementById("themeButton").textContent =
+        isArabic
+        ? (document.body.classList.contains("heritage") ? "النمط العادي" : "النمط التراثي")
+        : (document.body.classList.contains("heritage") ? "Classic Mode" : "Heritage Mode");
+}
+</script>
+
+<script src="images/js/language.js"></script>
+
+</body>
+</html>

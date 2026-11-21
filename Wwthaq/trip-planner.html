@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خطط رحلتك بالذكاء الاصطناعي | وِثاق</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Tahoma, Arial, sans-serif;
+    color: white;
+    background:
+        linear-gradient(rgba(5, 25, 43, 0.82), rgba(5, 25, 43, 0.93)),
+        url("sohar-fort.jpg") center / cover fixed;
+}
+
+header {
+    text-align: center;
+    padding: 35px 15px 15px;
+}
+
+header h1 {
+    color: #e3c98d;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.language-button {
+    display: block;
+    margin: 15px auto;
+    padding: 9px 20px;
+    background: transparent;
+    color: #e3c98d;
+    border: 1px solid #c9ad70;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.container {
+    width: 90%;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid #c9ad70;
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+    margin: 18px 0 8px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 7px;
+    border: 1px solid #d8c491;
+    font-size: 15px;
+    font-family: Tahoma, Arial;
+}
+
+button.create-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #c9ad70;
+    color: #102b40;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    color: #e3c98d;
+    margin: 25px;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 data-i18n="tripPlannerTitle">
+        🧭 خطط رحلتك بالذكاء الاصطناعي
+    </h1>
+
+    <p data-i18n="tripPlannerDesc">
+        اكتشف سلطنة عُمان وأنشئ برنامجك السياحي حسب اهتماماتك وميزانيتك.
+    </p>
+
+   
+</header>
+<div class="container">
+
+    <label data-i18n="tripSelectGovernorates">
+    اختر المحافظة أو المحافظات
+</label>
+
+<div class="multi-select" id="governorateBox">
+    <div class="selected-box" id="selectedBox">
+        <span id="selectedText" data-i18n="tripChooseGovernorates">
+            اختر المحافظات
+        </span>
+        <span>▼</span>
+    </div>
+
+    <div class="options-box" id="optionsBox">
+        <label><input type="checkbox" value="musandam"> <span data-i18n="tripMusandam">مسندم</span></label>
+        <label><input type="checkbox" value="buraimi"> <span data-i18n="tripBuraimi">البريمي</span></label>
+        <label><input type="checkbox" value="north"> <span data-i18n="tripNorth">شمال الباطنة</span></label>
+        <label><input type="checkbox" value="south"> <span data-i18n="tripSouth">جنوب الباطنة</span></label>
+        <label><input type="checkbox" value="muscat"> <span data-i18n="tripMuscat">مسقط</span></label>
+        <label><input type="checkbox" value="dakhiliyah"> <span data-i18n="tripDakhiliyah">الداخلية</span></label>
+        <label><input type="checkbox" value="dhahirah"> <span data-i18n="tripDhahirah">الظاهرة</span></label>
+        <label><input type="checkbox" value="north_sharqiyah"> <span data-i18n="tripNorthSharqiyah">شمال الشرقية</span></label>
+        <label><input type="checkbox" value="south_sharqiyah"> <span data-i18n="tripSouthSharqiyah">جنوب الشرقية</span></label>
+        <label><input type="checkbox" value="wusta"> <span data-i18n="tripWusta">الوسطى</span></label>
+        <label><input type="checkbox" value="dhofar"> <span data-i18n="tripDhofar">ظفار</span></label>
+    </div>
+</div>
+<style>
+.multi-select {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.selected-box {
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    padding: 14px;
+    min-height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 12px;
+}
+
+#selectedText {
+    flex: 1;
+    text-align: right;
+    white-space: normal;
+}
+
+.options-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
+    background: white;
+    color: #333;
+    border: 1px solid #c9ad62;
+    border-radius: 10px;
+    z-index: 100;
+    margin-top: 5px;
+}
+
+.options-box label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.options-box label:hover {
+    background: #eee;
+}
+
+.options-box input {
+    width: 18px;
+    height: 18px;
+    accent-color: #b99a4b;
+}
+
+.options-box.show {
+    display: block;
+}
+</style>
+
+<script>
+const governorateBox = document.getElementById("governorateBox");
+const selectedBox = document.getElementById("selectedBox");
+const optionsBox = document.getElementById("optionsBox");
+const selectedText = document.getElementById("selectedText");
+
+selectedBox.addEventListener("click", function () {
+    optionsBox.classList.toggle("show");
+});
+
+optionsBox.addEventListener("change", function () {
+    const selected = Array.from(
+        optionsBox.querySelectorAll('input[type="checkbox"]:checked')
+    ).map(input => input.nextElementSibling.textContent.trim());
+
+    selectedText.textContent = selected.length
+        ? selected.join(document.documentElement.lang === "en" ? ", " : "، ")
+        : (document.documentElement.lang === "en"
+            ? "Choose governorates"
+            : "اختر المحافظات");
+});
+
+document.addEventListener("click", function (event) {
+    if (!governorateBox.contains(event.target)) {
+        optionsBox.classList.remove("show");
+    }
+});
+</script>
+    
+
+    <label data-i18n="tripDays">عدد أيام الرحلة</label>
+    <input type="number" id="days" min="1"
+        placeholder="مثلاً: 3"
+        data-i18n-placeholder="daysPlaceholder">
+
+    <label data-i18n="tripBudget">الميزانية بالريال العُماني</label>
+    <input type="number" id="budget" min="0"
+        placeholder="مثلاً: 100"
+        data-i18n-placeholder="budgetPlaceholder">
+
+    <label data-i18n="tripType">نوع الرحلة</label>
+
+    <select id="tripType">
+        <option value="" data-i18n="tripType">اختر نوع الرحلة</option>
+        <option value="family" data-i18n="familyTrip">عائلية</option>
+        <option value="heritage" data-i18n="heritageTrip">تراثية وتاريخية</option>
+        <option value="adventure" data-i18n="adventureTrip">مغامرات</option>
+        <option value="relaxation" data-i18n="relaxationTrip">استرخاء وترفيه</option>
+        <option value="nature" data-i18n="natureTrip">طبيعية</option>
+    </select >
+
+    <button id="createTripBtn" class="create-button" type="button" data-i18n="createTrip">
+        
+        إنشاء البرنامج السياحي
+    </button>
+
+   <div id="tripResult" aria-live="polite"></div>
+
+</div>
+
+<a class="back" href="home.html" data-i18n="backHome">
+    العودة إلى الصفحة الرئيسية
+</a>
+
+<script src="images/js/language.js"></script>
+
+<script>
+document.getElementById("createTripBtn").addEventListener("click", async function () {
+
+    const tripResult = document.getElementById("tripResult");
+    const button = this;
+
+    const governorates = Array.from(
+        document.querySelectorAll('#optionsBox input[type="checkbox"]:checked')
+    ).map(input => input.nextElementSibling.textContent.trim());
+
+    const days = document.getElementById("days").value;
+    const budget = document.getElementById("budget").value;
+    const tripType = document.getElementById("tripType").value;
+
+    if (!governorates.length || !days || !budget || !tripType) {
+        tripResult.style.display = "block";
+        tripResult.innerHTML = `
+            <div style="padding:20px;text-align:center;direction:rtl;">
+                يرجى تعبئة جميع بيانات الرحلة واختيار محافظة واحدة على الأقل.
+            </div>
+        `;
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "جارٍ إنشاء برنامجك السياحي...";
+
+    tripResult.style.display = "block";
+    tripResult.innerHTML = `
+        <div style="padding:20px;text-align:center;direction:rtl;">
+            جارٍ إعداد رحلتك بالذكاء الاصطناعي...
+        </div>
+    `;
+
+    try {
+        const response = await fetch("/api/plan-trip", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+           body: JSON.stringify({
+    governorates,
+    days,
+    budget,
+    tripType,
+    language: localStorage.getItem("withaqLanguage") || "ar"
+})
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "حدث خطأ أثناء إنشاء الرحلة.");
+        }
+
+        tripResult.innerHTML = `
+            <div style="padding:20px;text-align:right;direction:rtl;line-height:2;">
+                <h2 style="color:#e3c98d;text-align:center;">
+                    برنامجك السياحي في عُمان
+                </h2>
+                <div style="white-space:pre-wrap;">${escapeHTML(data.plan)}</div>
+            </div>
+        `;
+
+    } catch (error) {
+        tripResult.innerHTML = `
+            <div style="padding:20px;text-align:center;direction:rtl;">
+                ${escapeHTML(error.message)}
+            </div>
+        `;
+    } finally {
+        button.disabled = false;
+        button.textContent = "إنشاء البرنامج السياحي";
+    }
+
+});
+
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, function (char) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        }[char];
+    });
+}
+</script>
+
+</body>
+</html>

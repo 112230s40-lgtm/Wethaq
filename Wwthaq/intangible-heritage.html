@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>وِثاق | التراث غير المادي</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            rgba(7, 30, 49, 0.88),
+            rgba(7, 30, 49, 0.94)
+        ),
+        url("sohar-fort.jpg") center / cover fixed;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+header h1 {
+    font-size: 38px;
+    color: #ffffff;
+}
+
+header p {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.gold-line {
+    width: 100px;
+    height: 3px;
+    background: #d8c491;
+    margin: 20px auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #d8c491;
+    margin: 35px 0 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(216,196,145,0.5);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card h2 {
+    color: #d8c491;
+    font-size: 20px;
+}
+
+.card p {
+    line-height: 2;
+    font-size: 15px;
+}
+
+.icon {
+    font-size: 38px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    border-top: 1px solid #d8c491;
+    line-height: 2;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    color: white;
+    background: #173e58;
+    border: 1px solid #d8c491;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background: #285875;
+}
+
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 data-i18n="intangibleTitle">التراث غير المادي العُماني</h1>
+    <div class="gold-line"></div>
+    <p>
+        <span data-i18n="intangibleDescription">نحتفي بالعادات والتقاليد والفنون العُمانية</span><br>
+        <span data-i18n="intangibleSubtitle">تراث حي ينتقل من جيل إلى جيل</span>
+    </p>
+</header>
+
+<main class="container">
+
+    <h2 class="section-title" data-i18n="intangibleSectionTitle">
+        أقسام التراث غير المادي
+    </h2>
+
+    <div class="cards">
+
+        <!-- الفنون الشعبية -->
+        <div class="card">
+            <div class="icon">🎶</div>
+            <h2 data-i18n="folkArtsTitle">الفنون الشعبية</h2>
+            <p data-i18n="folkArtsDescription">
+                اكتشف الفنون العُمانية مثل الرزحة والعازي والبرعة.
+            </p>
+        </div>
+
+        <!-- العادات والتقاليد -->
+        <div class="card">
+            <div class="icon">🤝</div>
+            <h2 data-i18n="customsTitle">العادات والتقاليد</h2>
+            <p data-i18n="customsDescription">
+                تعرّف على العادات الاجتماعية والمناسبات التقليدية في عُمان.
+            </p>
+        </div>
+
+        <!-- الأهازيج والأغاني -->
+        <div class="card">
+            <div class="icon">🎤</div>
+            <h2 data-i18n="songsTitle">الأهازيج والأغاني الشعبية</h2>
+            <p data-i18n="songsDescription">
+                استكشف الأغاني والأهازيج التي تعبر عن حياة المجتمع العُماني.
+            </p>
+        </div>
+
+        <!-- المأكولات العُمانية -->
+        <div class="card">
+            <div class="icon">🍲</div>
+            <h2 data-i18n="cuisineTitle">المأكولات العُمانية</h2>
+            <p data-i18n="cuisineDescription">
+                تعرّف على الأطباق التقليدية وطرق إعدادها المتوارثة.
+            </p>
+        </div>
+
+        <!-- الضيافة العُمانية -->
+        <div class="card">
+            <div class="icon">☕</div>
+            <h2 data-i18n="hospitalityTitle">الضيافة العُمانية</h2>
+            <p data-i18n="hospitalityDescription">
+                اكتشف تقاليد القهوة العُمانية وتقديم التمور للضيوف.
+            </p>
+        </div>
+
+        <!-- الحكايات والروايات -->
+        <div class="card">
+            <div class="icon">📖</div>
+            <h2 data-i18n="storiesTitle">الحكايات والروايات الشعبية</h2>
+            <p data-i18n="storiesDescription">
+                تعرّف على الحكايات والأمثال والقصص المتوارثة عبر الأجيال.
+            </p>
+        </div>
+
+        <!-- المعارف والممارسات -->
+        <div class="card">
+            <div class="icon">🌴</div>
+            <h2 data-i18n="knowledgeTitle">المعارف والممارسات التقليدية</h2>
+            <p data-i18n="knowledgeDescription">
+                تعرّف على المعارف المرتبطة بالزراعة والبحر والحياة اليومية.
+            </p>
+        </div>
+
+    </div>
+</main>
+</main>
+
+<footer>
+    <a href="home.html" class="back-button" data-i18n="backHome">
+        العودة إلى الصفحة الرئيسية
+    </a>
+
+    <p data-i18n="footerSlogan">
+        وِثاق | نحفظ الماضي ونصنع المستقبل
+    </p>
+
+    <p data-i18n="omanVision">
+        رؤية عُمان 2040
+    </p>
+</footer>
+
+<script src="images/js/language.js"></script>
+
+
+</body>
+</html>
