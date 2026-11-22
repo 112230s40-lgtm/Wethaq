@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="pageTitle">المقتنيات الأثرية والتراثية | وِثاق</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #071d35;
+      color: #fff;
+      line-height: 1.8;
+    }
+    header {
+      text-align: center;
+      padding: 30px 15px;
+      background: linear-gradient(135deg, #06172a, #123858);
+      border-bottom: 2px solid #b99b5b;
+    }
+    .logo {
+      color: #e0c27e;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      color: #e0c27e;
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #d0dbe5;
+      font-size: 14px;
+    }
+    .container {
+      width: min(1100px, 94%);
+      margin: auto;
+      padding: 25px 0;
+    }
+    .back-link {
+      display: inline-block;
+      color: #e0c27e;
+      text-decoration: none;
+      border: 1px solid #b99b5b;
+      padding: 7px 16px;
+      border-radius: 7px;
+      font-size: 13px;
+      transition: .2s;
+    }
+    .back-link:hover {
+      background: #d6b66f;
+      color: #071d35;
+    }
+    .intro {
+      text-align: center;
+      padding: 25px 10px;
+    }
+    .intro h2 {
+      color: #e0c27e;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .intro p {
+      color: #d0dbe5;
+      font-size: 14px;
+      max-width: 750px;
+      margin: auto;
+    }
+    .filter-area {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 30px;
+    }
+    .filter-area select {
+      width: min(320px, 100%);
+      padding: 11px 14px;
+      background: #102d4b;
+      color: #fff;
+      border: 1px solid #b99b5b;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+    .governorate-section {
+      margin-bottom: 38px;
+    }
+    .province-title {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(214,182,111,.35);
+    }
+    .province-title h2 {
+      color: #e0c27e;
+      font-size: 21px;
+    }
+    .province-title p {
+      color: #c2cfdb;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+    .card {
+      background: #102d4b;
+      border: 1px solid rgba(214,182,111,.35);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: .25s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #d6b66f;
+    }
+    .card-image {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg,#173e5b,#8b7449);
+    }
+    .image-fallback {
+      height: 165px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+      color: #e0c27e;
+      background: linear-gradient(135deg,#173e5b,#8b7449);
+    }
+    .card-content {
+      padding: 13px 15px 16px;
+    }
+    .card h3 {
+      color: #e0c27e;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .card .owner {
+      color: #e7d7b2;
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+    .card .location {
+      color: #b7c9d9;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: #e0e6ec;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 9px;
+      border: 1px solid #b99b5b;
+      border-radius: 20px;
+      color: #e0c27e;
+      font-size: 10px;
+    }
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 13px;
+    }
+    .card-links a {
+      display: inline-block;
+      color: #071d35;
+      background: #d6b66f;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      transition: .2s;
+    }
+    .card-links a:hover {
+      background: #f0d99e;
+    }
+    .empty-message {
+      display: none;
+      text-align: center;
+      color: #e0c27e;
+      padding: 25px;
+    }
+    .bottom-back {
+      text-align: center;
+      margin: 35px 0 15px;
+    }
+    footer {
+      text-align: center;
+      padding: 18px;
+      background: #06172a;
+      border-top: 1px solid #b99b5b;
+      color: #c4ced8;
+      font-size: 12px;
+    }
+    @media(max-width: 750px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media(max-width: 500px) {
+      header h1 {
+        font-size: 21px;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .card-image,
+      .image-fallback {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" data-i18n="brandName">وِثــــاق</div>
+  <h1 data-i18n="collectionsTitle">المقتنيات الأثرية والتراثية</h1>
+  <p data-i18n="collectionsSubtitle">كنوز تحفظ ذاكرة الوطن وتحكي تاريخ الأجداد</p>
+</header>
+
+<main class="container">
+  
+  <section class="intro">
+    <h2 data-i18n="ownersTitle">أصحاب المقتنيات التراثية</h2>
+    <p data-i18n="ownersDescription">
+      نأخذكم في رحلة للتعرف على أصحاب المتاحف وهواة جمع المقتنيات الأثرية والتراثية في سلطنة عُمان، وما تحتفظ به مجموعاتهم من شواهد تاريخية تحكي أصالة الماضي العُماني.
+    </p>
+  </section>
+
+  <div class="filter-area">
+   <select
+  id="governorateFilter"
+  aria-label="اختيار المحافظة"
+  data-i18n-aria="filterLabel">
+
+  <option value="" selected data-i18n="chooseGovernorate">
+    اختر المحافظة
+  </option>
+  <option value="north" data-i18n="northBatinah">شمال الباطنة</option>
+  <option value="south" data-i18n="southBatinah">جنوب الباطنة</option>
+  <option value="dakhiliya" data-i18n="dakhiliya">الداخلية</option>
+  <option value="muscat" data-i18n="muscat">مسقط</option>
+  <option value="dhofar" data-i18n="dhofar">ظفار</option>
+</select>
+
+  </div>
+  <!-- شمال الباطنة -->
+  <section class="governorate-section" data-region="north">
+    <div class="province-title">
+      <h2 data-i18n="northGovernorate">محافظة شمال الباطنة</h2>
+      <p data-i18n="northIntro">مقتنيات تحكي تاريخ الساحل العُماني</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img class="card-image" src="images/amjad-oman.jpg"
+             alt="متحف أمجاد عُمان"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="image-fallback" style="display:none">🏺</div>
+        <div class="card-content">
+          <h3 data-i18n="amjadMuseum">أمجاد عُمان</h3>
+          <div class="owner" data-i18n="amjadOwner">حمود بن عبدالله العمراني</div>
+          <div class="location">📍 <span data-i18n="sohar">صحار</span> -
+            <span data-i18n="northGovernorate">محافظة شمال الباطنة</span></div>
+          <p data-i18n="amjadDescription">مدير متحف أمجاد عُمان بولاية صحار، الذي يضم أكثر من 15 ألف قطعة أثرية وتراثية.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+أمجاد+عمان+صحار"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="card-image" src="images/متحف أبناء مجان.jpg"
+             alt="متحف أبناء مجان"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="image-fallback" style="display:none">🏺</div>
+        <div class="card-content">
+          <h3 data-i18n="sonsMuseum">متحف أبناء مجان</h3>
+          <div class="location">📍 <span data-i18n="sohar">صحار</span> -
+            <span data-i18n="northGovernorate">محافظة شمال الباطنة</span></div>
+          <p data-i18n="sonsDescription">يعرض مجموعة من المقتنيات التراثية التي توثق تاريخ صحار، ومنها الأسلحة والعملات وأدوات الملاحة والزراعة والمشغولات الحرفية وقارب الصيد القديم.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+أبناء+مجان+صحار"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- جنوب الباطنة -->
+  <section class="governorate-section" data-region="south">
+    <div class="province-title">
+      <h2 data-i18n="southGovernorate">محافظة جنوب الباطنة</h2>
+      <p data-i18n="southIntro">مقتنيات تجسد الحياة العُمانية القديمة</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img class="card-image" src="images/متحف بيت الغشب.jpg"
+         alt="متحف بيت الغشب"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        
+        <div class="card-content">
+          <h3 data-i18n="baitGhasham">متحف بيت الغشام</h3>
+          <div class="owner" data-i18n="salihOwner">صالح بن عبدالله بن سيف المعمري</div>
+          <div class="location">📍 <span data-i18n="wadiMaawil">وادي المعاول</span> -
+            <span data-i18n="southGovernorate">محافظة جنوب الباطنة</span></div>
+          <p data-i18n="baitDescription">متحف تراثي يعرض الأواني النحاسية والفخارية والمشغولات السعفية والعملات والحلي والمناديس والأسلحة والأدوات المرتبطة بالحرف العُمانية التقليدية.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+بيت+الغشام+عمان"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- الداخلية -->
+  <section class="governorate-section" data-region="dakhiliya">
+    <div class="province-title">
+      <h2 data-i18n="dakhiliyaGovernorate">محافظة الداخلية</h2>
+      <p data-i18n="dakhiliyaIntro">ذاكرة تاريخية تحفظ تفاصيل الحياة العُمانية</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+       <img class="card-image" src="images/متحف نزوى.webp">
+        <div class="card-content">
+          <h3 data-i18n="nizwaMuseum">متحف نزوى</h3>
+          <div class="owner" data-i18n="nizwaOwner">محمد بن أحمد أمبوسعيدي</div>
+          <div class="location">📍 <span data-i18n="nizwa">نزوى</span> -
+            <span data-i18n="dakhiliyaGovernorate">محافظة الداخلية</span></div>
+          <p data-i18n="nizwaDescription">صاحب ومدير متحف نزوى، الذي يضم قرابة ألفي قطعة تراثية موزعة على قاعات تشمل المخطوطات والأسلحة والنحاس والفخار والحرف اليدوية.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+نزوى"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="card-image" src="images/متحف بوابة الماضي.webp">
+        <div class="card-content">
+          <h3 data-i18n="pastGate">متحف بوابة الماضي</h3>
+          <div class="location">📍 <span data-i18n="nizwa">نزوى</span> -
+            <span data-i18n="dakhiliyaGovernorate">محافظة الداخلية</span></div>
+          <p data-i18n="pastGateDescription">متحف خاص بولاية نزوى يعرض مقتنيات تراثية متنوعة، ويجسد تفاصيل الحياة العُمانية القديمة من خلال الأدوات والمقتنيات التقليدية.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+بوابة+الماضي+نزوى"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- مسقط -->
+  <section class="governorate-section" data-region="muscat">
+    <div class="province-title">
+      <h2 data-i18n="muscatGovernorate">محافظة مسقط</h2>
+      <p data-i18n="muscatIntro">مجموعات تراثية تعكس الهوية العُمانية</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img class="card-image" src="images/متحف بيت الزبير.webp">
+        <div class="card-content">
+          <h3 data-i18n="baitAlZubair">بيت الزبير</h3>
+          <div class="owner" data-i18n="zobairFamily">عائلة الزبير</div>
+          <div class="location">📍 <span data-i18n="muscat">مسقط</span> -
+            <span data-i18n="muscatGovernorate">محافظة مسقط</span></div>
+          <p data-i18n="zobairDescription">تضم مجموعة عائلة الزبير مقتنيات عُمانية متنوعة تشمل الأسلحة التقليدية والمجوهرات والملابس والأدوات المنزلية القديمة التي تعكس تاريخ المجتمع العُماني.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+بيت+الزبير+مسقط"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ظفار -->
+  <section class="governorate-section" data-region="dhofar">
+    <div class="province-title">
+      <h2 data-i18n="dhofarGovernorate">محافظة ظفار</h2>
+      <p data-i18n="dhofarIntro">مقتنيات توثق تاريخ وثقافة أرض اللبان</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img class="card-image" src="images/متحف تواصل الاجيال.jpeg">
+        <div class="card-content">
+          <h3 data-i18n="generationsMuseum">متحف تواصل الأجيال</h3>
+          <div class="owner" data-i18n="salimOwner">سالم بن أحمد العمري</div>
+          <div class="location">📍 <span data-i18n="taqa">طاقة</span> -
+            <span data-i18n="dhofarGovernorate">محافظة ظفار</span></div>
+          <p data-i18n="salimDescription">صاحب متحف تواصل الأجيال بولاية طاقة، بدأ جمع المقتنيات الأثرية منذ عام 1983م، ويضم المتحف العملات والأزياء التقليدية والأدوات البحرية والحرف التراثية.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+تواصل+الأجيال+طاقة"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+       <img class="card-image" src="images/متحف ظفار.webp">
+        <div class="card-content">
+          <h3 data-i18n="dhofarMuseum">متحف ظفار</h3>
+          <div class="owner" data-i18n="dhofarOwner">الشيخ محمد بن عبدالمحسن السيل الغساني</div>
+          <div class="location">📍 <span data-i18n="salalah">صلالة</span> -
+            <span data-i18n="dhofarGovernorate">محافظة ظفار</span></div>
+          <p data-i18n="dhofarDescription">صاحب متحف ظفار الخاص، الذي يضم مجموعة من المقتنيات التاريخية والتراثية التي توثق أنماط الحياة والثقافة في محافظة ظفار.</p>
+          <span class="tag" data-i18n="heritageMuseum">متحف تراثي</span>
+          <div class="card-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=متحف+ظفار"
+               target="_blank" rel="noopener" data-i18n="showMap">عرض الموقع على الخريطة</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="empty-message" id="emptyMessage" data-i18n="emptyMessage">
+    لا توجد مقتنيات في هذه المحافظة حاليًا.
+  </div>
+
+  <div class="bottom-back">
+    <a class="back-link" href="home.html" data-i18n="backHome">
+      العودة إلى الصفحة الرئيسية
+    </a>
+  </div>
+</main>
+
+<footer>
+  <span data-i18n="footerSlogan">وِثاق | نحفظ الماضي ونصنع المستقبل</span>
+  <br>
+  <span data-i18n="omanVision">رؤية عُمان 2040</span>
+</footer>
+
+<script>
+  const governorateFilter = document.getElementById("governorateFilter");
+const governorateSections = document.querySelectorAll(".governorate-section");
+const emptyMessage = document.getElementById("emptyMessage");
+
+function filterCards() {
+  const selectedRegion = governorateFilter.value;
+
+  governorateSections.forEach(section => {
+    const matches =
+      selectedRegion !== "" &&
+      section.dataset.region === selectedRegion;
+
+    section.style.display = matches ? "block" : "none";
+  });
+
+  emptyMessage.style.display = "none";
+}
+
+governorateFilter.addEventListener("change", filterCards);
+
+document.querySelectorAll(".card-image").forEach(img => {
+  img.addEventListener("error", function () {
+    this.style.display = "none";
+    const fallback = this.nextElementSibling;
+    if (fallback) fallback.style.display = "flex";
+  });
+});
+
+filterCards();
+</script>
+
+<script src="images/js/language.js"></script>
+</body>
+</html>

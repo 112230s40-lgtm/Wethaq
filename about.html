@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>وِثاق | من نحن</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    color: white;
+    background:
+        linear-gradient(
+            rgba(7, 30, 49, 0.88),
+            rgba(7, 30, 49, 0.94)
+        ),
+        url("sohar-fort.jpg") center / cover fixed;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+header h1 {
+    font-size: 38px;
+}
+
+header p {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.gold-line {
+    width: 100px;
+    height: 3px;
+    background: #d8c491;
+    margin: 20px auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(216,196,145,0.5);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card h2 {
+    color: #d8c491;
+    font-size: 22px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 2;
+}
+
+.icon {
+    font-size: 35px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 35px;
+    border-top: 1px solid #d8c491;
+    line-height: 2;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    color: white;
+    background: #173e58;
+    border: 1px solid #d8c491;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background: #285875;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+<header>
+    <h1 data-i18n="aboutUs">من نحن</h1>
+    <div class="gold-line"></div>
+    <p>
+        <span data-i18n="homeDescription">منصة وِثاق الرقمية لتوثيق التراث العُماني</span><br>
+        <span data-i18n="homeSlogan">نحفظ الماضي ونصنع المستقبل</span>
+    </p>
+</header>
+
+<main class="container">
+
+    <div class="card">
+        <div class="icon">🏛️</div>
+        <h2 data-i18n="aboutPlatformTitle">نبذة عن المنصة</h2>
+        <p data-i18n="aboutPlatformText">
+            وِثاق منصة رقمية تهدف إلى توثيق التراث العُماني والتعريف به من خلال جمع المعلومات وتنظيمها وعرضها بطريقة رقمية تسهّل الوصول إليها.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🌟</div>
+        <h2 data-i18n="aboutVisionTitle">رؤيتنا</h2>
+        <p data-i18n="aboutVisionText">
+            أن تكون منصة وِثاق مرجعاً رقمياً للتعريف بالتراث العُماني والمحافظة عليه ونقله إلى الأجيال القادمة.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🎯</div>
+        <h2 data-i18n="aboutMissionTitle">رسالتنا</h2>
+        <p data-i18n="aboutMissionText">
+            المساهمة في حفظ التراث العُماني وتوثيقه ونشر الوعي بأهميته باستخدام التقنيات الرقمية الحديثة.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📚</div>
+        <h2 data-i18n="aboutGoalsTitle">أهدافنا</h2>
+        <p data-i18n="aboutGoalsText">
+            توثيق التراث المادي وغير المادي، والتعريف بالمواقع الأثرية والمقتنيات التراثية، وتشجيع الاهتمام بالهوية الثقافية العُمانية.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🇴🇲</div>
+        <h2 data-i18n="aboutImportanceTitle">أهمية توثيق التراث العُماني</h2>
+        <p data-i18n="aboutImportanceText">
+            يُعد التراث العُماني جزءاً أصيلاً من الهوية الوطنية، ويسهم توثيقه في حفظ الذاكرة التاريخية والثقافية وتعريف الأجيال القادمة بإرث وطنهم.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    <a href="home.html" class="back-button" data-i18n="backHome">
+        العودة إلى الصفحة الرئيسية
+    </a>
+
+    <p data-i18n="footerSlogan">
+        وِثاق | نحفظ الماضي ونصنع المستقبل
+    </p>
+
+    <p data-i18n="omanVision">
+        رؤية عُمان 2040
+    </p>
+</footer>
+
+<script src="images/js/language.js"></script>
+
+</body>
+</html>

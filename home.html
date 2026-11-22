@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>وِثاق | الصفحة الرئيسية</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            color: #ffffff;
+            background:
+                linear-gradient(
+                    rgba(7, 30, 49, 0.88),
+                    rgba(7, 30, 49, 0.94)
+                ),
+                url("sohar-fort.jpg") center / cover fixed;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: #ffffff;
+            font-size: 19px;
+            line-height: 1.9;
+        }
+
+        .gold-line {
+            width: 100px;
+            height: 3px;
+            background: #d8c491;
+            margin: 20px auto;
+        }
+
+      .sections {
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.section-card {
+    padding: 6px 4px;
+    border-radius: 6px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(216, 196, 145, 0.5);
+    text-decoration: none;
+    color: white;
+}
+
+.section-card h2 {
+    font-size: 11px;
+    margin: 3px 0;
+}
+
+.section-card p {
+    display: none;
+}
+
+.icon {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #ffffff;
+            border-top: 1px solid rgba(216, 196, 145, 0.5);
+            line-height: 2;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 10px auto 25px;
+            padding: 12px 25px;
+            color: #ffffff;
+            background: #173e58;
+            border: 1px solid #d8c491;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #285875;
+        }
+
+
+        
+        @media (max-width: 750px) {
+            .sections {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .sections {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+        }
+
+    .trip-planner-btn {
+    display: flex;
+    width: 300px;
+    height: 40px;
+    margin: 20px auto;
+    padding: 8px;
+    background: linear-gradient(135deg, #cfb681, #c2a2629f);
+    color: #0a2541;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #0e226add;
+    border-radius: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+
+ <header>
+    <h1 data-i18n="siteName">وِثــــاق</h1>
+    <div class="gold-line"></div>
+    <p>
+        <span data-i18n="homeDescription">منصة رقمية لتوثيق التراث العُماني</span><br>
+        <span data-i18n="homeSlogan">نحفظ الماضي ونصنع المستقبل</span>
+    </p>
+ </header>
+
+
+   <main class="sections">
+
+    <a href="archaeological-sites.html" class="section-card">
+        <div class="icon">🏛️</div>
+        <h2 data-i18n="archaeologicalSites">المواقع الأثرية</h2>
+        <p data-i18n="archaeologicalSitesDesc">اكتشف المواقع التاريخية والأثرية في سلطنة عُمان.</p>
+    </a>
+
+    <a href="archaeological-collections.html" class="section-card">
+        <div class="icon">🏺</div>
+        <h2 data-i18n="archaeologicalCollections">المقتنيات الأثرية</h2>
+        <p data-i18n="archaeologicalCollectionsDesc">تعرّف على المقتنيات والتحف التي تحكي تاريخ عُمان.</p>
+    </a>
+
+    <a href="tangible-heritage.html" class="section-card">
+        <div class="icon">🕌</div>
+        <h2 data-i18n="tangibleHeritage">التراث المادي</h2>
+        <p data-i18n="tangibleHeritageDesc">استكشف المباني والحصون والحرف والموروثات المادية.</p>
+    </a>
+
+    <a href="intangible-heritage.html" class="section-card">
+        <div class="icon">🎶</div>
+        <h2 data-i18n="intangibleHeritage">التراث غير المادي</h2>
+        <p data-i18n="intangibleHeritageDesc">اكتشف العادات والتقاليد والفنون الشعبية والروايات.</p>
+    </a>
+
+    <a href="accommodation.html" class="section-card">
+        <div class="icon">🏨</div>
+        <h2 data-i18n="accommodationTitle">أماكن الإقامة السياحية</h2>
+        <p data-i18n="accommodationDesc">اكتشف الفنادق وأماكن الإقامة القريبة من المواقع الأثرية في عُمان.</p>
+    </a>
+
+    <a href="about.html" class="section-card">
+        <div class="icon">📜</div>
+        <h2 data-i18n="aboutUs">من نحن</h2>
+        <p data-i18n="aboutUsDesc">تعرّف على منصة وِثاق ورسالتها وأهدافها.</p>
+ </a>
+</main>
+
+<a href="trip-planner.html" class="trip-planner-btn">
+    ✨ <span data-i18n="planTrip">خطّط رحلتك بالذكاء الاصطناعي</span> 🧭
+</a>
+
+<footer>
+
+    
+    <a href="index.html" class="back-button" data-i18n="backToLogin">
+        العودة إلى صفحة الدخول
+    </a>
+
+    <p data-i18n="footerSlogan">
+        وِثاق | نحفظ الماضي ونصنع المستقبل
+    </p>
+
+    <p data-i18n="omanVision">
+        رؤية عُمان 2040
+    </p>
+</footer>
+
+<script src="images/js/language.js"></script>
+</body>
+</html>

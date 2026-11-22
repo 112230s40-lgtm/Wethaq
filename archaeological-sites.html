@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المواقع الأثرية | وِثاق</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background:
+        linear-gradient(
+            rgba(5, 20, 38, 0.62),
+            rgba(5, 20, 38, 0.72)
+        ),
+        url("sohar1-fort.jpg") center center / cover fixed no-repeat;
+    background-color: #071d35;
+    color: #fff;
+    line-height: 1.8;
+}
+header{text-align:center;padding:28px 15px 24px;background:linear-gradient(135deg,#0b2948,#173f5d);border-bottom:2px solid #c6a45c}
+.logo{color:#d6b66f;font-size:32px;font-weight:bold;letter-spacing:3px}
+header h1{font-size:24px;margin-top:8px}
+header p{color:#d2dce5;font-size:13px;margin-top:6px}
+.container{max-width:1150px;margin:auto;padding:24px 18px}
+.top-back{text-align:center;margin:0 0 22px}
+.back-link{display:inline-block;background:#d6b66f;color:#071d35;text-decoration:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:bold}
+.intro{text-align:center;margin-bottom:25px}
+.intro h2{color:#d6b66f;font-size:21px;margin-bottom:7px}
+.intro p{color:#cbd6e1;font-size:13px}
+.governorates{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:28px}
+.gov-button{background:#102d4b;border:1px solid #9e854f;color:#e6d4a5;padding:12px 7px;border-radius:8px;font-family:inherit;font-size:13px;cursor:pointer;transition:.25s}
+.gov-button:hover,.gov-button.active{background:#d6b66f;color:#071d35;border-color:#d6b66f}
+.province-title{text-align:center;margin-bottom:20px}
+.province-title h2{color:#e0c27e;font-size:22px}
+.province-title p{color:#c2cfdb;font-size:12px;margin-top:4px}
+/* ترتيب البطاقات */
+.sites {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+/* البطاقة */
+.card {
+    background: rgba(5, 24, 45, 0.82);
+    border: 1px solid rgba(210, 170, 95, 0.65);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #d6ad65;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* صورة البطاقة */
+.card-photo {
+    height: 125px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* محتوى البطاقة */
+.card-content {
+    padding: 10px 12px;
+}
+
+.card h3 {
+    color: #e4c27f;
+    font-size: 15px;
+    margin: 0 0 5px;
+}
+
+.location {
+    color: #d8c49e;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #f0f0f0;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 5px 0;
+}
+
+/* تصنيف الموقع */
+.tag {
+    display: inline-block;
+    background: rgba(205, 165, 95, 0.15);
+    color: #e8c987;
+    border: 1px solid rgba(205, 165, 95, 0.45);
+    border-radius: 20px;
+    padding: 2px 9px;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+/* عرض البطاقات على الهاتف */
+@media (max-width: 768px) {
+    .sites {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .card-photo {
+        height: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sites {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.province{display:none}.province.active{display:block}
+.bottom-back{text-align:center;margin:35px 0 12px}
+footer{text-align:center;padding:18px;background:#06172a;border-top:1px solid #b99b5b;color:#c4ced8;font-size:12px}
+@media(max-width:750px){.governorates{grid-template-columns:repeat(3,1fr)}.sites{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:500px){header h1{font-size:20px}.governorates{grid-template-columns:repeat(3,1fr)}.sites{grid-template-columns:1fr}.card-photo{height:175px}}
+
+.page-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.page-controls button {
+    padding: 9px 18px;
+    border: 1px solid #d6b66f;
+    border-radius: 6px;
+    background: #d6b66f;
+    color: #071d35;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">وِثــــاق</div>
+
+    <h1 data-i18n="archaeologicalMainTitle">
+        المواقع الأثرية في سلطنة عُمان
+    </h1>
+
+    <p data-i18n="archaeologicalSubtitle">
+        شواهد تاريخية تحكي عراقة الأرض وعمق الحضارة العُمانية
+    </p>
+
+    
+</header>
+
+<main class="container">
+  
+  <section class="intro">
+    <h2>ذاكرة المكان وأصالة التاريخ</h2>
+    <p>نأخذكم في رحلة بين القلاع والحصون العُمانية، لنتعرّف على شواهد الحضارة التي تركت بصمتها عبر الزمن.</p>
+  </section>
+
+  <nav class="governorates" aria-label="اختيار المحافظة">
+    <button class="gov-button active" type="button" data-target="north">شمال الباطنة</button>
+    <button class="gov-button" type="button" data-target="dakhiliyah">الداخلية</button>
+    <button class="gov-button" type="button" data-target="south">جنوب الباطنة</button>
+    <button class="gov-button" type="button" data-target="muscat">مسقط</button>
+    <button class="gov-button" type="button" data-target="dhofar">ظفار</button>
+  </nav>
+
+  <section id="north" class="province active">
+    <div class="province-title"><h2>محافظة شمال الباطنة</h2><p>قلاع وحصون تحكي تاريخ الساحل العُماني</p></div>
+    <div class="sites">
+      <article class="card"><div class="card-photo"><img loading="lazy" src="sohar-fort.jpg" alt="قلعة صحار" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة صحار</h3><div class="location">📍 ولاية صحار</div><p>معلم تاريخي بارز ارتبط بتاريخ مدينة صحار ومكانتها التجارية والبحرية عبر العصور.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="sohar1-fort.jpg" alt="قلعة صحار" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن صحار</h3><div class="location">📍 ولاية صحار</div><p>أحد المعالم الدفاعية التاريخية التي تشهد على أهمية صحار في تاريخ عُمان.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="شناص.jpg" alt="حصن شناص" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن شناص</h3><div class="location">📍 ولاية شناص</div><p>معلم تراثي يعكس الطابع الدفاعي والعمارة التقليدية في الولاية.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="فزح.jpg" alt="قلعة فزح" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة فزح</h3><div class="location">📍 ولاية لوى</div><p>من المعالم التاريخية التي تحتفظ بمكانتها ضمن التراث المعماري للمحافظة.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="لوى.jpg" alt="حصن لوى" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن لوى</h3><div class="location">📍 ولاية لوى</div><p>شاهد تاريخي على العمارة الدفاعية والحياة الاجتماعية في الولاية.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="صحم.jpg" alt="حصن صحم" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن صحم</h3><div class="location">📍 ولاية صحم</div><p>معلم تراثي يرتبط بتاريخ الولاية ويجسد جانبًا من موروثها العمراني.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="الخابورة.jpg" alt="حصن الخابورة" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن الخابورة</h3><div class="location">📍 ولاية الخابورة</div><p>أحد المعالم التاريخية التي تبرز الموروث الدفاعي في ولاية الخابورة.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="السويق.jpg" alt="حصن السويق" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن السويق</h3><div class="location">📍 ولاية السويق</div><p>معلم تاريخي يعكس جانبًا من تاريخ الولاية وتراثها العريق.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="حصن الثرمد.jpg" alt="حصن الثرمد" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن الثرمد</h3><div class="location">📍 ولاية السويق</div><p>أحد المعالم التراثية المنسوبة إلى ولاية السويق بمحافظة شمال الباطنة.</p><span class="tag">حصن تاريخي</span></div></article>
+    </div>
+  </section>
+
+  <section id="dakhiliyah" class="province">
+    <div class="province-title"><h2>محافظة الداخلية</h2><p>معالم شامخة تجسد عمق التاريخ العُماني</p></div>
+    <div class="sites">
+      <article class="card"><div class="card-photo"><img loading="lazy" src="images/قلعة نزوى.jpg" alt="قلعة  نزوى" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة نزوى</h3><div class="location">📍 ولاية نزوى</div><p>تُعرف بقلعتها الشهباء، وتعد من أبرز القلاع العُمانية وأشهرها.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="https://www.centarahotelsresorts.com/sites/centara-global/files/2025-01/oman-historical-landmarks-2.jpg" alt="قلعة بهلاء" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة بهلاء</h3><div class="location">📍 ولاية بهلاء</div><p>قلعة تاريخية تحيط بها واحة بهلاء، وهي مدرجة ضمن قائمة التراث العالمي لليونسكو.</p><span class="tag">تراث عالمي – اليونسكو</span></div></article>
+      <article class="card"><div class="card-photo"><img loading="lazy" src="https://cdn.travel-buddies.com/media/full-day-nizwa-fort-bahla-fort-and-jabreen-castle-private-tour-d4389-324718P11-4.jpg" alt="حصن جبرين" onerror="this.remove()"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن جبرين</h3><div class="location">📍 ولاية بهلاء</div><p>معلم معماري تاريخي يجمع بين الجوانب الدفاعية والفنون المعمارية العُمانية.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن سمائل.webp" alt="  حصن سمائل"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن سمائل</h3><div class="location">📍 ولاية سمائل</div><p>يقع في علاية سمائل، ويعد من المعالم التاريخية البارزة في الولاية.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة الفيقين.webp" alt="قلعة الفيقين"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة الفيقين</h3><div class="location">📍 ولاية منح</div><p>قلعة تاريخية عُرفت بخصائصها الدفاعية وفنها المعماري العريق.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن بيت الرديدة.jpeg" alt="حصن بيت الرديدة"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن بيت الرديدة</h3><div class="location">📍 ولاية نزوى</div><p>معلم تاريخي يعكس جانبًا من العمارة الدفاعية العُمانية.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/فلج العين.webp" alt=" فلج العين "><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>فلج العين</h3><div class="location">📍 ولاية أدم</div><p>من المعالم الأثرية التي تحتفظ بها ولاية أدم ضمن موروثها التاريخي.</p><span class="tag">فلج تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/فلج المالح.jpg" alt="  فلج المالح"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3> فلج المالح</h3><div class="location">📍 ولاية أدم</div><p>معلم تاريخي يقع في الجهة الغربية من ولاية أدم.</p><span class="tag">فلج تاريخية</span></div></article>
+    </div>
+  </section>
+
+  <section id="south" class="province">
+    <div class="province-title"><h2>محافظة جنوب الباطنة</h2><p>قلاع وحصون تحكي أمجاد التاريخ العُماني</p></div>
+    <div class="sites">
+      <article class="card"><div class="card-photo"><img loading="lazy" src="images/قلعة الرستاق.webp" alt="قلعة الرستاق"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة الرستاق</h3><div class="location">📍 ولاية الرستاق</div><p>من أبرز القلاع العُمانية، وتمثل معلمًا تاريخيًا ومعماريًا مهمًا.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن الحزم.jpg" alt="  حصن الحزم"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن الحزم</h3><div class="location">📍 ولاية الرستاق</div><p>حصن تاريخي يتميز بفنون العمارة العُمانية والتصميم الدفاعي المميز.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة نخل.webp" alt="  قلعة نخل"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة نخل</h3><div class="location">📍 ولاية نخل</div><p>قلعة شامخة تتربع على تلة جبلية وسط أشجار النخيل، وتعود جذورها إلى فترة ما قبل الإسلام.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن العوابي.webp" alt="  حصن العوابي"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن العوابي</h3><div class="location">📍 ولاية العوابي</div><p>يقف في وادي بني خروص شاهدًا على تاريخ الولاية وموروثها.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/بيت النعمان.webp" alt="  بيت النعمان"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>بيت النعمان</h3><div class="location">📍 ولاية بركاء</div><p>معلم تراثي بارز يرتبط بتاريخ ولاية بركاء وعمارتها التقليدية.</p><span class="tag">معلم تراثي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة السفالة.webp" alt="  قلعة السفالة"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة السفالة</h3><div class="location">📍 ولاية وادي المعاول</div><p>من المعالم التاريخية في الولاية، وتمثل جانبًا من تاريخها العريق.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن بني سليمة.jpeg" alt="  حصن بني سليمة"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن بني سليمة</h3><div class="location">📍 ولاية وادي المعاول</div><p>أحد المعالم التاريخية التي تشهد على الموروث العمراني للولاية.</p><span class="tag">حصن تاريخي</span></div></article>
+    </div>
+  </section>
+
+  <section id="muscat" class="province">
+    <div class="province-title"><h2>محافظة مسقط</h2><p>شواهد تاريخية تحرس ذاكرة العاصمة العُمانية</p></div>
+    <div class="sites">
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة الجلالي .webp" alt=" قلعة الجلالي"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3 data-i18n="alJalaliFortName">قلعة الجلالي </h3><div class="location">📍 ولاية مسقط</div><p data-i18n="alKutSharqiDescription">تقابل قلعة الميراني من الجهة الشرقية لخليج مسقط وتُعرف بالكوت الشرقي. اكتمل بناؤها عام 1588م فوق صخرة شاهقة، وشهدت توسعات مهمة في عهد الدولة البوسعيدية.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة مطرح.webp" alt="  قلعة مطرح"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة مطرح</h3><div class="location">📍 ولاية مطرح</div><p  data-i18n="alMutrahFortDescription">تعلو هضبة صخرية تشرف مباشرة على كورنيش مطرح والسوق القديم. بُنيت عام 1579م لحماية الميناء الطبيعي ومراقبة الطرق المؤدية إلى الداخل، وتُعد وجهة مفتوحة للزوار توفر إطلالة شاملة على الخليج.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن قريات.webp" alt="حصن قريات"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن قريات</h3><div class="location">📍 ولاية قريات</div><p data-i18n="alMutrahFortDescription">يقع في ولاية قريات الساحلية ويعود بناؤه إلى القرن التاسع عشر الميلادي. استُخدم مقراً للوالي ومركزاً لحماية الولاية الساحلية ومراقبة حركة الملاحة.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة الخوض.jpg" alt="  قلعة الخوض"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة الخوض</h3><div class="location">📍 ولاية السيب</div><p data-i18n="alKhoudhFortDescription">تُعد قلعة الخوض واحدة من أبرز المعالم التاريخية والأثرية في قرية الخوض القديمة بولاية السيب في محافظة مسقط. تقع القلعة في موقع استراتيجي على ضفة وادي الخوض، وقد لعبت قديماً دوراً حيوياً في حماية القرية ومراقبة الطرق المؤدية إليها وتأمين مواردها المائية من الأفلاج والآبار.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة الميراني.jpeg" alt="  قلعة الميراني"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3 data-i18n="alMiraniFortName">قلعة الميراني</h3><div class="location">📍 ولاية مسقط</div><p data-i18n="alMiraniDescription"> تقع في مسقط القديمة وتُعرف تاريخياً باسم الكوت الغربي. شُيّدت بصيغتها الحديثة عام 1587م على أنقاض برج قديم لحماية الميناء من الجهة الغربية، وتضم اليوم مرافق للزوار وإطلالات بانورامية.</p><span class="tag">حصن تاريخي</span></div></article>
+    </div>
+  </section>
+
+  <section id="dhofar" class="province">
+    <div class="province-title"><h2>محافظة ظفار</h2><p>معالم تاريخية في أرض اللبان والبخور</p></div>
+    <div class="sites">
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن طاقة.webp" alt="حصن طاقة"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن طاقة</h3><div class="location">📍 ولاية طاقة</div><p>معلم تاريخي يعكس جانبًا من العمارة التقليدية في محافظة ظفار.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/قلعة طاقة.webp" alt="  قلعة طاقة"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>قلعة طاقة</h3><div class="location">📍 ولاية طاقة</div><p>من المعالم التراثية التي ترتبط بتاريخ الولاية وموروثها المعماري.</p><span class="tag">قلعة تاريخية</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن مرباط.webp" alt="حصن مرباط"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن مرباط</h3><div class="location">📍 ولاية مرباط</div><p>معلم تاريخي يرتبط بتاريخ مرباط ومكانتها الساحلية والتجارية القديمة.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/حصن سدح.webp" alt="حصن سدح"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3>حصن سدح</h3><div class="location">📍 ولاية سدح</div><p>حصن تاريخي يتميز بنمط العمارة العُمانية التقليدية في محافظة ظفار.</p><span class="tag">حصن تاريخي</span></div></article>
+      <article class="card"><div class="card-photo"><img class="card-image" src="images/عين حمران.webp" alt="عين حمران"><span class="photo-fallback">🏰</span></div><div class="card-content"><h3> عين حمران</h3><div class="location">📍 محافظة ظفار</div><p>تُعد عين حمران من أشهر وأجمل عيون المياه الطبيعية في ولاية طاقة بمحافظة ظفار، وليست في محافظة مسقط. تقع العين في سهل حمران غرب مدينة طاقة، وتبعد حوالي 16 إلى 17 كيلومتراً شرق مركز مدينة صلالة.</p><span class="tag">عين حمران</span></div></article>
+    </div>
+  </section>
+
+  <div class="bottom-back"><a class="back-link" href="home.html">العودة إلى الصفحة الرئيسية</a></div>
+</main>
+<footer>وِثاق | نحفظ الماضي ونصنع المستقبل<br>رؤية عُمان 2040</footer>
+
+<script>
+
+document.querySelectorAll('.gov-button').forEach(function(button){
+  button.addEventListener('click',function(){
+    document.querySelectorAll('.province').forEach(function(section){section.classList.remove('active')});
+    document.querySelectorAll('.gov-button').forEach(function(item){item.classList.remove('active')});
+    var target=document.getElementById(button.dataset.target);
+    if(target){target.classList.add('active');button.classList.add('active')}
+    document.querySelector('.governorates').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+document.querySelectorAll('.card-photo img').forEach(function(img){
+  img.addEventListener('error',function(){img.style.display='none'});
+});
+
+// تبديل اللغة وحفظ الاختيار
+function changeLanguage() {
+    if (typeof setLanguage === "function") {
+        var currentLanguage = document.documentElement.lang || "ar";
+        var newLanguage = currentLanguage === "ar" ? "en" : "ar";
+        setLanguage(newLanguage);
+    }
+}
+
+// تبديل النمط وحفظ الاختيار
+function changeTheme() {
+    document.body.classList.toggle("heritage");
+
+    var savedTheme = document.body.classList.contains("heritage")
+        ? "heritage"
+        : "normal";
+
+    localStorage.setItem("theme", savedTheme);
+    updateThemeButton();
+}
+
+// تحديث اسم زر النمط
+function updateThemeButton()
+
+{
+    var themeButton = document.getElementById("themeButton");
+    if (!themeButton) return;
+
+    var isArabic = document.documentElement.lang === "ar";
+    var isHeritage = document.body.classList.contains("heritage");
+
+    themeButton.textContent = isArabic
+        ? (isHeritage ? "النمط العادي" : "النمط التراثي")
+        : (isHeritage ? "Classic Mode" : "Heritage Mode");
+}
+
+// ترجمة نصوص صفحة المواقع الأثرية
+var archaeologicalTranslations = {
+    "وِثــــاق": "WETHAQ",
+    "المواقع الأثرية في سلطنة عُمان": "Archaeological Sites in Oman",
+    "شواهد تاريخية تحكي عراقة الأرض وعمق الحضارة العُمانية": "Historical landmarks reflecting Oman's rich heritage and civilization",
+    "ذاكرة المكان وأصالة التاريخ": "The Memory of Place and the Authenticity of History",
+    "نأخذكم في رحلة بين القلاع والحصون العُمانية، لنتعرّف على شواهد الحضارة التي تركت بصمتها عبر الزمن.": "Join us on a journey through Oman's castles and forts to discover landmarks that tell the story of its civilization.",
+    "شمال الباطنة": "North Al Batinah",
+    "الداخلية": "Al Dakhiliyah",
+    "جنوب الباطنة": "South Al Batinah",
+    "مسقط": "Muscat",
+    "ظفار": "Dhofar",
+    "محافظة شمال الباطنة": "North Al Batinah Governorate",
+    "محافظة الداخلية": "Al Dakhiliyah Governorate",
+    "محافظة جنوب الباطنة": "South Al Batinah Governorate",
+    "محافظة مسقط": "Muscat Governorate",
+    "محافظة ظفار": "Dhofar Governorate",
+    "قلاع وحصون تحكي تاريخ الساحل العُماني": "Castles and forts telling the history of Oman's coast",
+    "معالم شامخة تجسد عمق التاريخ العُماني": "Landmarks reflecting the depth of Omani history",
+    "قلاع وحصون تحكي أمجاد التاريخ العُماني": "Castles and forts telling the glories of Omani history",
+    "شواهد تاريخية تحرس ذاكرة العاصمة العُمانية": "Historical landmarks guarding the memory of Oman's capital",
+    "معالم تاريخية في أرض اللبان والبخور": "Historical landmarks in the land of frankincense",
+    "قلعة صحار": "Sohar Fort",
+    "حصن صحار": "Sohar Castle",
+    "حصن شناص": "Shinas Fort",
+    "قلعة فزح": "Fazah Castle",
+    "حصن لوى": "Liwa Fort",
+    "حصن صحم": "Saham Fort",
+    "حصن الخابورة": "Al Khaburah Fort",
+    "حصن السويق": "Al Suwaiq Fort",
+    "حصن الثرمد": "Al Tharmad Fort",
+    "قلعة نزوى": "Nizwa Fort",
+    "قلعة بهلاء": "Bahla Fort",
+    "حصن جبرين": "Jabreen Castle",
+    "حصن سمائل": "Samail Fort",
+    "قلعة الفيقين": "Al Fiqain Castle",
+    "حصن بيت الرديدة": "Bait Al Ridaydah Fort",
+    "قلعة فلج العين": "Falaj Al Ain Castle",
+    "قلعة فلج المالح": "Falaj Al Maleh Castle",
+    "قلعة الرستاق": "Rustaq Fort",
+    "حصن الحزم": "Al Hazm Castle",
+    "قلعة نخل": "Nakhal Fort",
+    "حصن العوابي": "Al Awabi Fort",
+    "بيت النعمان": "Bait Al Nuaman",
+    "قلعة السفالة": "Al Safalah Castle",
+    "حصن بني سليمة": "Bani Sulaymah Fort",
+    "قلعتا الجلالي والميراني": "Al Jalali and Al Mirani Forts",
+    "قلعة مطرح": "Muttrah Fort",
+    "حصن قريات": "Quriyat Fort",
+    "قلعة الخوض": "Al Khoudh Castle",
+    "حصن بعي": "Bai Fort",
+    "حصن طاقة": "Taqah Fort",
+    "قلعة طاقة": "Taqah Castle",
+    "حصن مرباط": "Mirbat Fort",
+    "حصن سدح": "Sadah Fort",
+    "قلعة عين حمران": "Ain Hamran Castle",
+    "📍 ولاية صحار": "📍 Sohar",
+    "📍 ولاية شناص": "📍 Shinas",
+    "📍 ولاية لوى": "📍 Liwa",
+    "📍 ولاية صحم": "📍 Saham",
+    "📍 ولاية الخابورة": "📍 Al Khaburah",
+    "📍 ولاية السويق": "📍 Al Suwaiq",
+    "📍 ولاية نزوى": "📍 Nizwa",
+    "📍 ولاية بهلاء": "📍 Bahla",
+    "📍 ولاية سمائل": "📍 Samail",
+    "📍 ولاية منح": "📍 Manah",
+    "📍 ولاية أدم": "📍 Adam",
+    "📍 ولاية الرستاق": "📍 Rustaq",
+    "📍 ولاية نخل": "📍 Nakhal",
+    "📍 ولاية العوابي": "📍 Al Awabi",
+    "📍 ولاية بركاء": "📍 Barka",
+    "📍 ولاية وادي المعاول": "📍 Wadi Al Maawil",
+    "📍 ولاية مسقط": "📍 Muscat",
+    "📍 ولاية مطرح": "📍 Muttrah",
+    "📍 ولاية قريات": "📍 Quriyat",
+    "📍 ولاية السيب": "📍 Seeb",
+    "📍 ولاية العامرات": "📍 Al Amerat",
+    "📍 ولاية طاقة": "📍 Taqah",
+    "📍 ولاية مرباط": "📍 Mirbat",
+    "📍 ولاية سدح": "📍 Sadah",
+    "📍 محافظة ظفار": "📍 Dhofar Governorate",
+    "معلم تاريخي بارز ارتبط بتاريخ مدينة صحار ومكانتها التجارية والبحرية عبر العصور.": "A prominent historical landmark linked to Sohar's commercial and maritime importance throughout the ages.",
+    "أحد المعالم الدفاعية التاريخية التي تشهد على أهمية صحار في تاريخ عُمان.": "A historical defensive landmark reflecting Sohar's importance in Omani history.",
+    "معلم تراثي يعكس الطابع الدفاعي والعمارة التقليدية في الولاية.": "A heritage landmark reflecting the defensive character and traditional architecture of the region.",
+    "من المعالم التاريخية التي تحتفظ بمكانتها ضمن التراث المعماري للمحافظة.": "A historical landmark that holds an important place in the governorate's architectural heritage.",
+    "شاهد تاريخي على العمارة الدفاعية والحياة الاجتماعية في الولاية.": "A historical witness to the region's defensive architecture and social life.",
+    "معلم تراثي يرتبط بتاريخ الولاية ويجسد جانبًا من موروثها العمراني.": "A heritage landmark linked to the region's history and architectural heritage.",
+    "أحد المعالم التاريخية التي تبرز الموروث الدفاعي في ولاية الخابورة.": "A historical landmark highlighting the defensive heritage of Al Khaburah.",
+    "معلم تاريخي يعكس جانبًا من تاريخ الولاية وتراثها العريق.": "A historical landmark reflecting the region's history and rich heritage.",
+    "أحد المعالم التراثية المنسوبة إلى ولاية السويق بمحافظة شمال الباطنة.": "A heritage landmark associated with Al Suwaiq in North Al Batinah.",
+    "تُعرف بقلعتها الشهباء، وتعد من أبرز القلاع العُمانية وأشهرها.": "Known for its impressive round tower, it is one of Oman's most famous forts.",
+    "قلعة تاريخية تحيط بها واحة بهلاء، وهي مدرجة ضمن قائمة التراث العالمي لليونسكو.": "A historic fort surrounded by Bahla Oasis and listed as a UNESCO World Heritage Site.",
+    "معلم معماري تاريخي يجمع بين الجوانب الدفاعية والفنون المعمارية العُمانية.": "A historic architectural landmark combining defensive features with Omani architectural arts.",
+    "يقع في علاية سمائل، ويعد من المعالم التاريخية البارزة في الولاية.": "Located in Al Alaya Samail, it is one of the region's prominent historical landmarks.",
+    "قلعة تاريخية عُرفت بخصائصها الدفاعية وفنها المعماري العريق.": "A historic castle known for its defensive features and traditional architecture.",
+    "معلم تاريخي يعكس جانبًا من العمارة الدفاعية العُمانية.": "A historical landmark reflecting Omani defensive architecture.",
+    "من المعالم الأثرية التي تحتفظ بها ولاية أدم ضمن موروثها التاريخي.": "An archaeological landmark preserved as part of Adam's historical heritage.",
+    "معلم تاريخي يقع في الجهة الغربية من ولاية أدم.": "A historical landmark located in the western part of Adam.",
+    "من أبرز القلاع العُمانية، وتمثل معلمًا تاريخيًا ومعماريًا مهمًا.": "One of Oman's most prominent forts and an important historical and architectural landmark.",
+    "حصن تاريخي يتميز بفنون العمارة العُمانية والتصميم الدفاعي المميز.": "A historic fort distinguished by Omani architecture and its unique defensive design.",
+    "قلعة شامخة تتربع على تلة جبلية وسط أشجار النخيل، وتعود جذورها إلى فترة ما قبل الإسلام.": "A majestic fort standing on a hill among palm trees, with origins dating back to the pre-Islamic era.",
+    "يقف في وادي بني خروص شاهدًا على تاريخ الولاية وموروثها.": "Standing in Wadi Bani Kharus as a witness to the region's history and heritage.",
+    "معلم تراثي بارز يرتبط بتاريخ ولاية بركاء وعمارتها التقليدية.": "A prominent heritage landmark linked to Barka's history and traditional architecture.",
+    "من المعالم التاريخية في الولاية، وتمثل جانبًا من تاريخها العريق.": "A historical landmark representing part of the region's rich history.",
+    "أحد المعالم التاريخية التي تشهد على الموروث العمراني للولاية.": "A historical landmark reflecting the region's architectural heritage.",
+    "من أشهر القلاع العُمانية، وتقعان عند مدخل بحر عُمان، وتشكلان جزءًا مهمًا من تاريخ العاصمة.": "Among Oman's most famous forts, located at the entrance to the Gulf of Oman and forming an important part of the capital's history.",
+    "معلم تاريخي بارز يرتبط بالمكانة التجارية والبحرية القديمة لمدينة مطرح.": "A prominent historical landmark linked to Muttrah's former commercial and maritime importance.",
+    "أحد المعالم التاريخية التي تجسد الموروث المعماري والدفاعي للولاية.": "A historical landmark representing the region's architectural and defensive heritage.",
+    "من المعالم التاريخية التي تشهد على عراقة منطقة الخوض.": "A historical landmark reflecting the heritage of Al Khoudh.",
+    "معلم أثري ضمن الشواهد التاريخية التي تحتفظ بها ولاية العامرات.": "An archaeological landmark among the historical sites preserved in Al Amerat.",
+    "معلم تاريخي يعكس جانبًا من العمارة التقليدية في محافظة ظفار.": "A historical landmark reflecting traditional architecture in Dhofar.",
+    "من المعالم التراثية التي ترتبط بتاريخ الولاية وموروثها المعماري.": "A heritage landmark linked to the region's history and architectural heritage.",
+    "معلم تاريخي يرتبط بتاريخ مرباط ومكانتها الساحلية والتجارية القديمة.": "A historical landmark linked to Mirbat's history and former coastal and commercial importance.",
+    "حصن تاريخي يتميز بنمط العمارة العُمانية التقليدية في محافظة ظفار.": "A historic fort distinguished by traditional Omani architecture in Dhofar.",
+    "أُدرجت هنا ضمن القائمة الأولية، ويُفضّل التحقق من الاسم والموقع قبل اعتمادها.": "Included in this preliminary list; its name and location should be verified before confirmation.",
+    "قلعة تاريخية": "Historic Castle",
+    "حصن تاريخي": "Historic Fort",
+    "تراث عالمي – اليونسكو": "UNESCO World Heritage Site",
+    "قلعتان تاريخيتان": "Historic Twin Forts",
+    "معلم تراثي": "Heritage Landmark",
+    "بحاجة إلى تحقق": "Needs Verification",
+    "العودة إلى الصفحة الرئيسية": "Back to Home",
+    "وِثاق | نحفظ الماضي ونصنع المستقبل": "WETHAQ | Preserving the Past, Building the Future",
+    "رؤية عُمان 2040": "Oman Vision 2040"
+};
+function applyPageLanguage(language) {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+    document.querySelectorAll("body *").forEach(function(element) {
+        element.childNodes.forEach(function(node) {
+            if (node.nodeType === 3) {
+                var originalText = node.nodeValue.trim();
+
+                if (language === "en" && archaeologicalTranslations[originalText]) {
+                    node.nodeValue = node.nodeValue.replace(
+                        originalText,
+                        archaeologicalTranslations[originalText]
+                    );
+                } else if (language === "ar") {
+                    var arabicText = Object.keys(archaeologicalTranslations).find(function(key) {
+                        return archaeologicalTranslations[key] === originalText;
+                    });
+
+                    if (arabicText) {
+                        node.nodeValue = node.nodeValue.replace(
+                            originalText,
+                            arabicText
+                        );
+                    }
+                }
+            }
+        });
+    });
+
+    document.querySelector(".logo").textContent =
+        language === "ar" ? "وِثــــاق" : "WETHAQ";
+
+    document.title = language === "ar"
+        ? "المواقع الأثرية | وِثاق"
+        : "Archaeological Sites | WETHAQ";
+
+    updateThemeButton();
+}
+
+// استرجاع الاختيارات المحفوظة عند فتح الصفحة
+var savedLanguage = localStorage.getItem("withaqLanguage") || "ar";
+var savedTheme = localStorage.getItem("theme") || "normal";
+
+applyPageLanguage(savedLanguage);
+
+if (savedTheme === "heritage") {
+    document.body.classList.add("heritage");
+}
+
+var languageButton = document.getElementById("languageButton");
+if (languageButton) {
+    languageButton.textContent = savedLanguage === "ar" ? "English" : "العربية";
+}
+
+updateThemeButton();
+
+</script>
+
+<script src="images/js/language.js"></script>
+</body>
+</html>

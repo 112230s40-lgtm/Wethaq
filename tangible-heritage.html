@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>وِثاق | التراث المادي</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    color: white;
+    background:
+        linear-gradient(
+            rgba(7, 30, 49, 0.88),
+            rgba(7, 30, 49, 0.94)
+        ),
+        url("sohar-fort.jpg") center / cover fixed;
+    min-height: 100vh;
+}
+
+/* رأس الصفحة */
+header {
+    text-align: center;
+    padding: 35px 20px 15px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: white;
+}
+
+header p {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.gold-line {
+    width: 100px;
+    height: 3px;
+    background: #d8c491;
+    margin: 20px auto;
+}
+
+/* محتوى الصفحة */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #d8c491;
+    margin: 30px 0 20px;
+    font-size: 24px;
+}
+
+/* البطاقات */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    max-width: 850px;
+    margin: 20px auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(216,196,145,0.5);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* الصور */
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* عناوين البطاقات */
+.card h2 {
+    color: #d8c491;
+    font-size: 18px;
+    margin: 12px 0 6px;
+}
+
+/* وصف البطاقات */
+.card p {
+    line-height: 1.7;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* أسفل الصفحة */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 35px;
+    border-top: 1px solid #d8c491;
+    line-height: 2;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 22px;
+    color: white;
+    background: #173e58;
+    border: 1px solid #d8c491;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background: #285875;
+}
+
+/* الهواتف والأجهزة الصغيرة */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .card {
+        padding: 8px;
+    }
+
+    .card img {
+        height: 105px;
+    }
+
+    .card h2 {
+        font-size: 14px;
+        margin: 10px 0 5px;
+    }
+
+    .card p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 data-i18n="tangibleTitle">التراث المادي العُماني</h1>
+
+    <div class="gold-line"></div>
+
+    <p>
+        <span data-i18n="tangibleDescription">
+            اكتشف التراث المادي في سلطنة عُمان
+        </span>
+        <br>
+        <span data-i18n="tangibleSubtitle">
+            إرثٌ تاريخي يحكي أصالة الماضي
+        </span>
+    </p>
+</header>
+
+<main class="container">
+
+    <h2 class="section-title" data-i18n="tangibleSectionTitle">
+        أقسام التراث المادي
+    </h2>
+
+    <div class="cards">
+
+        <!-- الحصون والقلاع -->
+        <div class="card">
+            <img src="images/القلاع والحصون.webp"
+                 alt="الحصون والقلاع في سلطنة عمان">
+
+            <h2 data-i18n="fortressesTitle">الحصون والقلاع</h2>
+
+            <p data-i18n="fortressesDescription">
+                تتميز سلطنة عُمان بالحصون والقلاع التاريخية
+                التي تعكس عراقة التاريخ العُماني.
+            </p>
+        </div>
+
+        <!-- البيوت العمانية القديمة -->
+        <div class="card">
+            <img src="images/البيت العمانية القديمة.jpg"
+                 alt="البيوت العمانية القديمة">
+
+            <h2 data-i18n="housesTitle">البيوت العُمانية القديمة</h2>
+
+            <p data-i18n="housesDescription">
+                تمثل البيوت القديمة نمط الحياة العُمانية
+                التقليدية والعمارة التراثية الأصيلة.
+            </p>
+        </div>
+
+        <!-- الحرف التقليدية -->
+        <div class="card">
+            <img src="images/الحرف التقليدية.webp"
+                 alt="الحرف التقليدية العمانية">
+
+            <h2 data-i18n="craftsTitle">الحرف التقليدية</h2>
+
+            <p data-i18n="craftsDescription">
+                تشمل صناعة الفخار والنسيج والسعفيات
+                وغيرها من الحرف المتوارثة.
+            </p>
+        </div>
+
+        <!-- الأزياء والحلي -->
+        <div class="card">
+            <img src="images/الازياءوالحلي التقليدية.webp"
+                 alt="الأزياء والحلي العمانية">
+
+            <h2 data-i18n="clothingTitle">الأزياء والحُلي العُمانية</h2>
+
+            <p data-i18n="clothingDescription">
+                تعبر الأزياء والحُلي التقليدية عن الهوية
+                العُمانية والأصالة والجمال.
+            </p>
+        </div>
+
+        <!-- الأدوات والمقتنيات -->
+        <div class="card">
+            <img src="images/الادوات والمثتنيات الاثرية.webp"
+                 alt="الأدوات والمقتنيات التراثية">
+
+            <h2 data-i18n="objectsTitle">الأدوات والمقتنيات التراثية</h2>
+
+            <p data-i18n="objectsDescription">
+                تشمل الأدوات المنزلية والزراعية
+                والمقتنيات التي استخدمها العُمانيون قديماً.
+            </p>
+        </div>
+
+        <!-- الأبواب والنقوش -->
+        <div class="card">
+            <img src="images/الابواب والنقوش التراثية.webp"
+                 alt="الأبواب والنقوش التراثية">
+
+            <h2 data-i18n="doorsTitle">الأبواب والنقوش التراثية</h2>
+
+            <p data-i18n="doorsDescription">
+                تتميز العمارة العُمانية بالأبواب الخشبية
+                والزخارف والنقوش التقليدية.
+            </p>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+
+    <a href="home.html" class="back-button" data-i18n="backHome">
+        العودة إلى الصفحة الرئيسية
+    </a>
+
+    <p data-i18n="footerSlogan">
+        وِثاق | نحفظ الماضي ونصنع المستقبل
+    </p>
+
+    <p data-i18n="omanVision">
+        رؤية عُمان 2040
+    </p>
+
+</footer>
+
+<script src="images/js/language.js"></script>
+
+</body>
+</html>
